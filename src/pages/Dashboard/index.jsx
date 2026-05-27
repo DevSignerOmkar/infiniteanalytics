@@ -34,8 +34,8 @@ const Dashboard = () => {
     <div className="space-y-lg">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-md">
         <div>
-          <h1 className="text-headline-lg font-bold text-on-surface">Executive Overview</h1>
-          <p className="text-body-md text-on-surface-variant">Welcome back. Here&apos;s a look at your financial health.</p>
+          <h1 className="text-headline-lg font-bold text-on-surface">Welcome back, Omkar</h1>
+          <p className="text-body-md text-on-surface-variant">Here&apos;s what&apos;s happening with the invoices</p>
         </div>
         <div className="flex gap-sm">
           <button
