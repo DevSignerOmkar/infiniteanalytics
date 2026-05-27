@@ -15,12 +15,17 @@ const bottomItems = [
 const SidebarLayout = ({ children }) => {
   const navigate = useNavigate();
   const [notifOpen, setNotifOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const notifRef = useRef(null);
+  const userMenuRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (notifRef.current && !notifRef.current.contains(e.target)) {
         setNotifOpen(false);
+      }
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target)) {
+        setUserMenuOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -129,10 +134,39 @@ const SidebarLayout = ({ children }) => {
                   </div>
                 )}
               </div>
-              <div className="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
-                <div className="w-full h-full bg-primary/10 flex items-center justify-center text-primary font-bold text-label-md">
-                  AR
-                </div>
+              <div className="relative" ref={userMenuRef}>
+                <button
+                  onClick={() => setUserMenuOpen((p) => !p)}
+                  className="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant hover:ring-2 hover:ring-primary/30 transition-all"
+                >
+                  <div className="w-full h-full bg-primary/10 flex items-center justify-center text-primary font-bold text-label-md">
+                    AR
+                  </div>
+                </button>
+                {userMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-outline-variant z-50 overflow-hidden">
+                    <div className="px-lg py-md border-b border-outline-variant">
+                      <p className="text-label-md font-bold text-on-surface">Alex Rivera</p>
+                      <p className="text-label-sm text-outline">alex@fluxinvoice.com</p>
+                    </div>
+                    <div className="py-sm">
+                      <button onClick={() => { navigate('/settings'); setUserMenuOpen(false); }} className="w-full flex items-center gap-sm px-lg py-sm text-body-sm text-on-surface hover:bg-surface-container-low transition-colors">
+                        <Icon name="settings" size={18} />
+                        Settings
+                      </button>
+                      <button onClick={() => { navigate('/support'); setUserMenuOpen(false); }} className="w-full flex items-center gap-sm px-lg py-sm text-body-sm text-on-surface hover:bg-surface-container-low transition-colors">
+                        <Icon name="help" size={18} />
+                        Support
+                      </button>
+                    </div>
+                    <div className="border-t border-outline-variant py-sm">
+                      <button className="w-full flex items-center gap-sm px-lg py-sm text-body-sm text-error hover:bg-error-container/10 transition-colors">
+                        <Icon name="logout" size={18} />
+                        Logout
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
