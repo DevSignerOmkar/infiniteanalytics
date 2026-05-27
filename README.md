@@ -1,13 +1,25 @@
 # FluxInvoice — Premium Invoicing Platform
 
-A production-ready, single-page invoicing SaaS app built with React. Create, manage, and track invoices from a beautiful dashboard — no backend required.
+A production-ready, single-page invoicing SaaS application built with React. It provides freelancers, contractors, and small businesses with a complete invoicing workflow — create, manage, track, and send invoices from a polished dashboard — all without a backend server.
+
+## Why FluxInvoice?
+
+Managing invoices manually (spreadsheets, email threads, paper notes) is error-prone and time-consuming. FluxInvoice solves this by providing a dedicated, all-in-one workspace where you can:
+
+- **Track financial health at a glance** — The dashboard shows total revenue, paid/outstanding/late amounts, upcoming due dates, and recent activity in one place.
+- **Maintain a clean invoice ledger** — Create, edit, delete, and search invoices with status filters (paid, pending, overdue, sent, draft). No more digging through emails or folders.
+- **Stay on top of payments** — See which invoices are overdue or due soon with countdown indicators. Mark invoices as paid to keep your records accurate.
+- **Work offline-first** — All data is saved to your browser's localStorage. No internet connection required after the initial load.
+- **Export records** — Download invoice data as CSV or full backup as JSON for accounting, tax filing, or archival.
+
+It is designed for solo entrepreneurs, freelance developers, designers, consultants, and anyone who needs a simple, beautiful way to manage client billing without paying for a subscription SaaS.
 
 ---
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 18+ (for `Intl.NumberFormat` INR locale support)
 - npm 9+
 
 ### Setup
