@@ -32,13 +32,17 @@ const CreateInvoice = () => {
     setSummary(values);
   }, []);
 
-  const handleDraft = useCallback(() => {
+  const handleDraft = useCallback(async () => {
     const data = formRef.current?.getFormData();
     if (data) {
-      localStorage.setItem('draft_invoice', JSON.stringify(data));
+      if (existingInvoice) {
+        await updateInvoice(existingInvoice.id, { ...data, status: 'draft' });
+      } else {
+        await createInvoice({ ...data, status: 'draft' });
+      }
       navigate('/invoices');
     }
-  }, [navigate]);
+  }, [navigate, existingInvoice, createInvoice, updateInvoice]);
 
   return (
     <div className="flex flex-col lg:flex-row gap-lg">

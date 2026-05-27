@@ -42,7 +42,7 @@ export const invoiceService = {
       id: generateId(),
       invoiceNumber: `INV-${String(invoices.length + 1).padStart(4, '0')}`,
       createdAt: now,
-      status: 'pending',
+      status: invoice.status || 'pending',
     };
     saveAll([newInvoice, ...invoices]);
     return newInvoice;

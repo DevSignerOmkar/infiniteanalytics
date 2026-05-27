@@ -14,6 +14,7 @@ const tabs = [
   { label: 'Paid', value: 'paid' },
   { label: 'Outstanding', value: 'pending' },
   { label: 'Late', value: 'overdue' },
+  { label: 'Draft', value: 'draft' },
 ];
 
 const sortOptions = ['Date', 'Amount', 'Client'];
