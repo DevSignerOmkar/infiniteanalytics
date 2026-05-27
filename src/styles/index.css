@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .sidebar-link {
+    @apply flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-container-high transition-all duration-200 rounded-lg;
+  }
+  .sidebar-link-active {
+    @apply text-primary font-semibold bg-primary-container/10 rounded-lg;
+  }
+  .custom-shadow {
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.05), 0 2px 4px -2px rgba(99, 102, 241, 0.05);
+  }
+  .drawer-transition {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .overlay-fade {
+    transition: opacity 0.3s ease;
+  }
+  .line-item-row:hover .delete-btn {
+    opacity: 1;
+  }
+  .chart-gradient {
+    background: linear-gradient(180deg, rgba(70, 72, 212, 0.1) 0%, rgba(70, 72, 212, 0) 100%);
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 2rem;
+  }
+  .print-area .no-print {
+    display: none;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
