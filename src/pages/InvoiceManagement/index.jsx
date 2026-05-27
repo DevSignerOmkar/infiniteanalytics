@@ -153,18 +153,28 @@ const InvoiceManagement = () => {
 
   return (
     <div className="space-y-xl">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-lg">
-        <div>
-          <h2 className="text-headline-lg text-on-surface font-bold">Invoices</h2>
-          <p className="text-body-md text-on-surface-variant">Manage and track your client billings</p>
+      <div>
+        <h2 className="text-headline-lg text-on-surface font-bold">Invoices</h2>
+        <p className="text-body-md text-on-surface-variant">Manage and track your client billings</p>
+      </div>
+
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-md">
+        <div className="relative w-full max-w-md">
+          <Icon name="search" className="absolute left-3 top-1/2 -translate-y-1/2 text-outline" size={20} />
+          <input
+            className="w-full bg-surface-container-low border border-outline-variant rounded-full py-sm pl-10 pr-md focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-body-sm transition-all"
+            placeholder="Search invoices, clients..."
+            value={searchText}
+            onChange={handleSearch}
+          />
         </div>
-        <div className="flex flex-wrap gap-md">
-          <div className="flex bg-surface-container-low p-1 rounded-xl border border-outline-variant">
+        <div className="flex items-center gap-md">
+          <div className="flex bg-surface-container-low p-1 rounded-xl border border-outline-variant w-fit">
             {tabs.map((tab) => (
               <button
                 key={tab.value}
                 onClick={() => handleTabChange(tab.value)}
-                className={`px-md py-sm rounded-lg text-label-md transition-all ${
+                className={`px-md py-sm rounded-lg text-label-md transition-all whitespace-nowrap ${
                   activeTab === tab.value
                     ? 'bg-white shadow-sm text-primary font-bold'
                     : 'text-on-surface-variant hover:text-primary'
@@ -200,16 +210,6 @@ const InvoiceManagement = () => {
             )}
           </div>
         </div>
-      </div>
-
-      <div className="relative w-full max-w-md">
-        <Icon name="search" className="absolute left-3 top-1/2 -translate-y-1/2 text-outline" size={20} />
-        <input
-          className="w-full bg-surface-container-low border border-outline-variant rounded-full py-sm pl-10 pr-md focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-body-sm transition-all"
-          placeholder="Search invoices, clients..."
-          value={searchText}
-          onChange={handleSearch}
-        />
       </div>
 
       <div className="bg-white rounded-xxl border border-outline-variant overflow-hidden custom-shadow">
